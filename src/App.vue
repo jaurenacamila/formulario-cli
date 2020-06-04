@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
     <div class="jumbotron mt-3">
-        <h1><u>Formulario en Cli con usuarios</u></h1>
+        <h1>FORMULARIO</h1>
         <hr>
         <Navbar />
         <router-view></router-view>
@@ -31,9 +31,8 @@ export default {
   margin-top: 60px;
 }
 h1 {
-  color:#2c3e50
+  color:#2c3e50;
+  font-family: helvetica
 }
-.jumbotron {
-  color:aqua
-}
+
 </style>

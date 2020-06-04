@@ -1,7 +1,7 @@
 <template>
   <section class="src-components-formulario">
     <div class="jumbotron mt-3">
-      <h2>Ingrese aquí sus datos</h2>
+      <h3>INGRESO DE UN NUEVO USUARIO</h3>
       <hr>
 
       <vue-form :state="formState" @submit.prevent="enviar()">
@@ -15,40 +15,17 @@
           class="form-control" 
           autocomplete="off" 
           name="nombre"
-          v-model.number="formData.nombre" 
+          v-model.trim="formData.nombre" 
           required 
-          no-espacios
-          :minlength="nombreChrMin"
-          :maxlength="nombreChrMax"
+          :minlength="nombreCharMin"
+          :maxlength="nombreCharMax"
           > 
 
           <field-messages name="nombre" show="$dirty">
-                   <div slot="required" class="alert alert-danger">Campo nombre requerido</div>
-                   <div slot="no-espacios" class="alert alert-danger">No se permiten espacios</div>
-                   <div slot="minlenght" class="alert alert-danger">Debe ingresar como minimo {{nombreChrMin}} letras</div>
-                   <div v-if="formData.length == nombreChrMax" class="alert alert-danger">Máximo de carateres alcanzados ({{nombreChrMax}} letras)</div>
+              <div slot="required" class="alert alert-danger">Campo nombre requerido</div>
+              <div slot="minlenght" class="alert alert-danger">Debe ingresar como minimo {{nombreCharMin}} letras</div>
+              <div slot="maxlength" class="alert alert-danger">Máximo de carateres alcanzados ({{nombreCharMax}} letras)</div>
           </field-messages>
-
-      </validate>
-      <br>
-
-      <validate tag="div">
-
-        <label for="apellido">Apellido</label>
-          <input 
-          type="text" 
-          id="apellido" 
-          class="form-control" 
-          autocomplete="off" 
-          name="apellido"
-          v-model.trim="formData.apellido" 
-          required
-          no-espacios
-          >
-
-        <field-messages name="apellido" show="$dirty">
-            <div slot="required" class="alert alert-danger">Campo apellido requerido</div>
-        </field-messages>
 
       </validate>
       <br>
@@ -67,7 +44,6 @@
         >
       
       <field-messages name="edad" show="$dirty">
- <!--        <div class="alert alert-success my-1">Campo correcto</div> -->
         <div slot="required" class="alert alert-danger">Campo edad requerido</div>
         <div slot="min" class="alert alert-danger">La edad minima es {{edadMin}}</div>
         <div slot="max" class="alert alert-danger">La edad maxima es {{edadMax}}</div>        
@@ -97,12 +73,10 @@
       </validate>
       <br>
 
-      <button class="btn btn-success my-4" :disabled="formState.$invalid || enviando" type="submit">Enviar</button>
+      <button class="btn btn-dark my-4" :disabled="formState.$invalid || enviando" type="submit">Enviar</button>
 
     </vue-form>
-
    
-
   </div>
   </section>
 
@@ -120,21 +94,19 @@ import { urlPosts } from '../urls'
     },
     data () {
       return {
-         formState:{},
+      formState:{},
       formData: this.getInitialData(),
       edadMin:18,
       edadMax:120,
       enviando: false,
-      nombreChrMin: 5,
-      nombreChrMax: 15
-
+      nombreCharMin: 5,
+      nombreCharMax: 15
       }
     },
     methods: {
       getInitialData() {
       return{
         nombre: '',
-        apellido: '',
         edad:'',
         email: ''
       }
@@ -178,10 +150,13 @@ import { urlPosts } from '../urls'
   .src-components-formulario {
   }
   .jumbotron {
-    background-color: rgb(161, 39, 63);
+    background-color: rgb(177, 65, 0);
     color: white;
   }
   hr {
     background-color: white;
+  }
+  h3{
+    font-family: helvetica;
   }
 </style>

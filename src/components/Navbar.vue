@@ -1,6 +1,6 @@
 <template>
   <section class="src-components-navbar">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <button
         class="navbar-toggler"
         type="button"
@@ -49,13 +49,12 @@
     computed: {
 
     }
+
 }
-
-
 </script>
 
 <style scoped lang="css">
   .src-components-navbar {
-
+    
   }
 </style>
