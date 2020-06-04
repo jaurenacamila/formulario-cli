@@ -10,15 +10,14 @@
         <div class="media alert alert-info mt-3" v-for="(usuario, index) in usuarios" :key="index">
           <div class="media body ml-3">
             <ul>
-            <h5><u>Usuario {{index + 1}} - ID: {{ usuario.id }}</u></h5>
-            <br>
+             <h5><u>Usuario {{index + 1}} - ID: {{ usuario.id }}</u></h5>
+             <br>
               <p>Nombre: {{ usuario.nombre }}</p>
               <p>Edad: {{ usuario.edad }}</p>
               <p>Email: {{ usuario.email }}</p>
 
-            <button class="btn btn-danger m-3" @click="deleteUsuario(usuario.id)">ELIMINAR</button>
-
-             </ul>
+             <button class="btn btn-danger m-3" @click="deleteUsuario(usuario.id)">ELIMINAR</button>
+            </ul>
 
           </div> 
         </div>
@@ -50,11 +49,8 @@
     },
     methods: {
 
-       /* --------------*/
-      /* API REST GET */
-      /* ------------ */
+   
       getUsuarios(){
-        /* get se puede poner o no en this.axios.get() */
           this.axios.get(urlPosts)
           .then(res =>{
           console.log(res.data)
@@ -65,9 +61,6 @@
       })
       },
 
-       /* --------------*/
-      /* API REST POST */
-      /* ------------ */
     postUsuario(){
       let usuario = {
         nombre: "Pamela",
@@ -90,10 +83,6 @@
         console.log('Error POST HTTP', error)
       })
     },
-
-      /* --------------*/
-      /* API REST PUT */
-      /* ------------ */
 
   putUsuario(id){
       let usuario = {
@@ -156,5 +145,9 @@
 }
 hr {
   background-color: white;
+}
+.media {
+  background-color: rgb(255, 142, 77);
+  color: white;
 }
 </style>
