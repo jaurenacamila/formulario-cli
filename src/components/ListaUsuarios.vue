@@ -57,68 +57,17 @@
           this.usuarios = res.data
       })
       .catch(error =>{
-        console.log('Error HTTP', error)
+        console.log('Error', error)
       })
       },
 
-    postUsuario(){
-      let usuario = {
-        nombre: "Pamela",
-        foto: "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/9_avatar-512.png",
-        descripcion: "Alumno Vue.js",
-        coordenadas: "123456",
-        comentarios: "Hello!",
-        direccion: "CABA 456"
-      }
-      this.axios.post(urlPosts, usuario, {
-          'content-type' : 'application/json'
-      })
-      .then( res => {
-        let usuario = res.data
-          console.log(usuario)
-          //this.getUsuarios()
-          this.usuarios.push(usuario)
-      })
-      .catch(error =>{
-        console.log('Error POST HTTP', error)
-      })
-    },
-
-  putUsuario(id){
-      let usuario = {
-        nombre: "Maria",
-        descripcion: "Alumno Vue.js",
-        coordenadas: "123456",
-        comentarios: "Hola como estas?",
-        direccion: "CABA 123"
-      }
-      this.axios.put(urlPosts+id, usuario, {
-          'content-type' : 'application/json'
-      })
-      .then( res => {
-        let usuario = res.data
-          console.log(usuario)
-          this.getUsuarios()
-          let offset = this.usuarios.findIndex(usuario => usuario.id == id)
-          this.usuarios[offset] = usuario
-         // this.usuarios.splice(offset, 1, usuario)
-          
-      })
-      .catch(error =>{
-        console.log('Error PUT HTTP', error)
-      })
-    },
-
-       /* --------------*/
-      /* API REST DELETE */
-      /* ------------ */
   deleteUsuario(id){
          this.axios.delete(urlPosts+id)
           .then(res =>{
           console.log(res.data)
-           //this.getUsuarios()
+     
           let offset = this.usuarios.findIndex(usuario => usuario.id == id)
-         // this.usuarios[offset] = usuario
+
          this.usuarios.splice(offset, 1)
       })
       .catch(error =>{

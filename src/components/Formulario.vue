@@ -114,10 +114,6 @@ import { urlPosts } from '../urls'
     enviar(){
       this.enviando = true
       console.log(this.formData)
-
-      /* ------------------------- */ 
-      /* ENVIO DE DATOS CON AXIOS */
-      /* ----------------------- */
       this.axios.post(urlPosts, this.formData,{
         'contente-type' : 'application/json'
       })
